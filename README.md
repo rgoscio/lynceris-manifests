@@ -194,6 +194,16 @@ carry no gap of this kind.
 
 ---
 
+## Historical notes
+
+### Reading of 18 September 2026
+
+The content of that day's reading is in Polish; later readings are in
+English. It is preserved unchanged, because its checksum is recorded in
+the manifest for that day. The page itself carries a line stating this.
+
+---
+
 ## Contact
 
 Errors in a manifest, or a verification that does not reproduce:
