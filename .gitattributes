@@ -1,0 +1,3 @@
+# Line endings must never be converted: file hashes are anchored
+# in commits and in the Internet Archive.
+* -text
