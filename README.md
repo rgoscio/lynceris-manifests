@@ -8,8 +8,23 @@ artefact was in force, what the reading contained, and what the register
 recorded. It exists so that a third party can confirm that the published
 data has not been altered after the fact.
 
-Manifests contain hashes and metadata only. They contain no source
-content, no local paths and no credentials.
+Manifests contain no credentials. With the one exception described in
+the correction below, they contain no source content and no local paths.
+Each manifest names the sources and gives their status and, for each
+source captured, its checksum and, where it applies, the number of items.
+It lists the address of any public document newly archived that day and
+states the reason for any known gap.
+
+Correction, 7 October 2026. This file previously said that manifests
+contain "no source content, no local paths and no credentials". That is
+not accurate for the manifest of 2026-10-05. Its `anchored_late` section
+holds 30 full registry lines - 29 documents and the sitemap they were
+listed in - captured on 25 September 2026 and anchored later. Those
+lines include local file paths, the capture host name, storage paths
+and capture-method fields. They also include document titles and, in
+some lines, short fragments extracted from the document page, for
+example the wording of an effective date. They hold no full source text
+and no credentials. The manifest is anchored and has not been altered.
 
 ---
 
