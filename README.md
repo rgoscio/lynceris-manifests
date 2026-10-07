@@ -161,11 +161,23 @@ mention. It was switched off on that day.
 ## The chain
 
 Every manifest carries the hash of the previous day's manifest. Changing
-any past day invalidates every manifest after it, and the most recent one
-is anchored in a commit here and in the Wayback Machine.
+any past day invalidates every manifest after it.
+
+Each manifest is committed to this repository when it is generated. In a
+separate, later step we ask the Wayback Machine to capture it, so that a
+third party holds a copy with its own capture time. That step can be
+delayed and it can fail, and this repository does not record its outcome.
+A manifest's only anchor is its commit until that manifest, or a later
+one, has been captured. A later capture counts because each manifest
+carries the hash of the one before it.
 
 The chain covers days earlier than the first anchor. The anchor itself
 begins where it really begins - see below.
+
+Correction, 7 October 2026. This section previously said that the most
+recent manifest is anchored in a commit here and in the Wayback Machine.
+That did not always hold: on 7 October 2026 the captures of the manifests
+of 2026-10-06 and 2026-10-07 had not been confirmed.
 
 ---
 
