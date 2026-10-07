@@ -144,9 +144,17 @@ not from the day of the manifest.
 **4. Verify the reading.**
 
 `reading_markdown_sha256` is the hash of the Markdown source of that
-day's reading, not of the published HTML page. The HTML differs: the
-hosting layer injects an analytics beacon and rewrites font references
-after publication.
+day's reading, not of the published HTML page. The published HTML is
+not byte-identical to the build output: the hosting layer rewrites font
+references when it serves a page, and the order of the font rules it
+inserts varies between requests. Two downloads of the same page can
+therefore have different hashes although the reading has not changed.
+
+Correction, 7 October 2026. This section previously said that the
+hosting layer injects an analytics beacon. The beacon was switched off
+on 5 October 2026. Until 7 October 2026 the hosting layer also added a
+bot-detection script to pages of lynceris.com, which this file did not
+mention. It was switched off on that day.
 
 ---
 
