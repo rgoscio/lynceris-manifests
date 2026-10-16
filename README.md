@@ -237,6 +237,49 @@ The content of that day's reading is in Polish; later readings are in
 English. It is preserved unchanged, because its checksum is recorded in
 the manifest for that day. The page itself carries a line stating this.
 
+### UN Security Council Consolidated List: days without stored bytes
+
+On the days listed below, our collector compared the UN list it had just
+retrieved with the last stored copy of the list, ignoring the generation
+date inside the file. Because the rest of the content was the same, it
+did not store the bytes it had retrieved. The manifest for each of these
+days records the SHA-256 of that day's retrieval and names the earlier
+stored file (`effective_day`), which has its own SHA-256. For these
+days, the checksum recorded in the manifest cannot be checked against
+any stored file. According to the comparison made at the time of
+retrieval, the content of the list on these days was the same as in the
+earlier stored file, apart from the generation date.
+
+Day of retrieval -> earlier stored file:
+
+```
+2026-09-22 -> 2026-09-20
+2026-09-23 -> 2026-09-20
+2026-09-24 -> 2026-09-20
+2026-09-25 -> 2026-09-20
+2026-09-26 -> 2026-09-20
+2026-09-27 -> 2026-09-20
+2026-09-28 -> 2026-09-20
+2026-10-02 -> 2026-10-01
+2026-10-03 -> 2026-10-01
+2026-10-04 -> 2026-10-01
+2026-10-05 -> 2026-10-01
+2026-10-06 -> 2026-10-01
+2026-10-08 -> 2026-10-07
+2026-10-09 -> 2026-10-07
+2026-10-10 -> 2026-10-07
+2026-10-11 -> 2026-10-07
+2026-10-12 -> 2026-10-07
+2026-10-14 -> 2026-10-13
+```
+
+Days on which the retrieved bytes were identical to the stored file,
+such as 21 September 2026 (identical to the file of 20 September 2026),
+are not listed: their checksum can be checked against that file.
+
+For this list, since 15 October 2026 we keep the bytes of every day's
+retrieval.
+
 ---
 
 ## Contact
