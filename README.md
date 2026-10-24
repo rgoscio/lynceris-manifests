@@ -163,13 +163,19 @@ mention. It was switched off on that day.
 Every manifest carries the hash of the previous day's manifest. Changing
 any past day invalidates every manifest after it.
 
-Each manifest is committed to this repository when it is generated. In a
-separate, later step we ask the Wayback Machine to capture it, so that a
-third party holds a copy with its own capture time. That step can be
-delayed and it can fail, and this repository does not record its outcome.
-A manifest's only anchor is its commit until that manifest, or a later
-one, has been captured. A later capture counts because each manifest
-carries the hash of the one before it.
+Each manifest is committed to this repository when it is generated. Two
+further anchors are added in separate, later steps:
+
+- We ask the Wayback Machine to capture the manifest, so that a third
+  party holds a copy with its own capture time. That step can be delayed
+  and it can fail, and this repository does not record its outcome.
+- We timestamp the manifest file with OpenTimestamps and publish the proof
+  in this repository, next to the manifest. See the next section.
+
+Until a manifest, or a later one, has been captured by the Wayback Machine
+or has a complete OpenTimestamps proof, its only anchor is its commit. A
+later anchor counts because each manifest carries the hash of the one
+before it.
 
 The chain covers days earlier than the first anchor. The anchor itself
 begins where it really begins - see below.
@@ -178,6 +184,61 @@ Correction, 7 October 2026. This section previously said that the most
 recent manifest is anchored in a commit here and in the Wayback Machine.
 That did not always hold: on 7 October 2026 the captures of the manifests
 of 2026-10-06 and 2026-10-07 had not been confirmed.
+
+---
+
+## OpenTimestamps proofs
+
+We have timestamped manifest files with OpenTimestamps since 7 October
+2026, starting with the manifests of 6 and 7 October 2026. Since 21
+October 2026 the manifest of each day is timestamped automatically on the
+day it is published.
+
+The proof of a manifest is published here, next to it:
+
+```
+2026/10/2026-10-11.json        manifest
+2026/10/2026-10-11.json.ots    OpenTimestamps proof of that file
+```
+
+A proof covers the SHA-256 of the manifest file exactly as it is in this
+repository. A complete proof ties that hash to a block of the Bitcoin
+blockchain and shows that the file existed no later than about the time
+of that block. It is a statement about time only: it does not show that
+what the manifest records about a source is correct. Block times are set
+by miners and can differ from the real time by up to about two hours,
+which is why we write "about".
+
+A new proof starts as pending: it refers to OpenTimestamps calendar
+servers and does not yet point to a Bitcoin block. When it is completed,
+usually by the next day, the file here is replaced by the completed
+version. Each replacement contains everything the previous version did,
+and the history of this repository keeps every version.
+
+A day without a proof of its own is covered by the next later day that has
+a complete proof, because each manifest carries the hash of the one before
+it. These days have no proof of their own:
+
+```
+2026-09-18 to 2026-10-05   no later than about 2026-10-07 12:07 UTC   proof of 2026-10-06 (block 970337)
+2026-10-08 to 2026-10-10   no later than about 2026-10-11 14:10 UTC   proof of 2026-10-11 (block 970941)
+2026-10-16 to 2026-10-17   no later than about 2026-10-18 07:31 UTC   proof of 2026-10-18 (block 971956)
+```
+
+If a later day is missed, the same rule applies.
+
+To check a proof, install the OpenTimestamps client
+(`pip install opentimestamps-client`) and run, in a clone of this
+repository:
+
+```
+ots verify 2026/10/2026-10-11.json.ots
+```
+
+The client compares the proof with the file next to it. Checking the
+Bitcoin part needs access to a Bitcoin node; without one,
+`ots info 2026/10/2026-10-11.json.ots` shows which Bitcoin block the proof
+points to.
 
 ---
 
