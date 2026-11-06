@@ -347,3 +347,19 @@ retrieval.
 
 Errors in a manifest, or a verification that does not reproduce:
 contact@lynceris.com
+
+## Licence
+
+The daily manifests and the time-stamp proofs in this repository are dedicated to the public domain under CC0 1.0 Universal (see the LICENSE file).
+
+To the extent possible under law, Radosław Gościcki, conducting business activity as RADTECH Radosław Gościcki (Lynceris), has waived all copyright and related or neighboring rights, including database rights, to the daily manifests and the time-stamp proofs in this repository. This work is published from: Poland.
+
+You may copy, modify, distribute and use them, including for commercial purposes, without asking permission.
+
+Please note:
+
+- This repository contains only manifests created by Lynceris (file names, SHA-256 checksums and retrieval times) and time-stamp proofs. It does not contain copies of the source documents, which remain subject to the terms of their publishers (see https://lynceris.com/reader/sources).
+- CC0 1.0 does not cover the name and logo of Lynceris.
+- The manifests are provided as they are, without any warranty. They record what Lynceris retrieved and when; they do not confirm the accuracy of any source.
+
+Lynceris Terms of Use for the Free Services: https://lynceris.com/terms
